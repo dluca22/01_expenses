@@ -1,5 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+:root{
+    --primary:#c6c0c0;
+    --secondary:#c4aeae;
+    --accent:#ef516c
+
+}
+
 body{
     box-sizing: border-box;
     padding:0;
-    font-family: "Fira Code", Arial, Helvetica, sans-serif;
+    font-family: "cabin", Arial, Helvetica, sans-serif;
+    display: flex;
+    height: 96vh;
+    overflow: auto;
+    flex-direction: column;
+    align-items: center;
 }
+
+#title{
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+/* form  */
+#input-form{
+    height: 25%;
+    width: 100%;
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+label{
+    display:flex;
+    flex-direction: column;
+}
+input, select{
+    height: 1.5rem;
+    border-radius: 3px;
+}
+.group1, .group2{
+    display:flex;
+    gap:20px;
+}
+
+/* main section */

@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ts Expenses</title>
     <link rel="stylesheet" href="style.css">
-    <script src="/dist/script.js" defer ></script>
+    <script src="/dist/script.js" defer></script>
 </head>
+
 <body>
+    <h1 id="title">Ts Expenses</h1>
+    <form action="" id="input-form">
+        <div class="group1">
+            <label for="type">
+                Type:
+                <select name="type" id="">
+                    <option default value="">----</option>
+                    <option value="payment">Pay</option>
+                    <option value="expense">Expense</option>
+                    <option value="recurrent">Recurrent</option>
+                </select>
+            </label>
+
+            <label for="name">
+                Name:
+                <input type="text" name="name"></label>
+            <label for="recipient">
+                Recipient:
+                <input type="text" name="recipient">
+            </label>
+        </div>
+        <div class="group2">
+
+            <label for="amount">
+                Amount:<input type="number" name="amount">
+            </label>
+            <button type="submit">Add</button>
+        </div>
+    </form>
+    <section class="history">
+        <div>History</div>
+        <ul class="list">
+
+
+        </ul>
+
+    </section>
+
+    <footer></footer>
 
 </body>
+
 </html>
