@@ -15,6 +15,19 @@ added this code to tsconfig to allow Object.fromEntries to iterate over DOM obje
     "dom.iterable"
 ],
 */
+let docUno: HasFormatter;
+let docDue: HasFormatter;
+let docTre: HasFormatter;
+
+docUno = new Invoice("car", "concessionaria", 25000)
+docDue = new Bill("isp", "fastweb", 24.99)
+docTre = new Bill("isp", "fastweb", 24.99)
+
+const docsArray: HasFormatter[] = []
+docsArray.push(docUno)
+docsArray.push(docDue)
+docsArray.push(docTre)
+
 
 form.addEventListener("submit", e => {
         e.preventDefault()

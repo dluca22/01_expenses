@@ -18,9 +18,6 @@ export class Invoice implements HasFormatter{
         }
     }
 
-
-
-
 // versione classica
 // class Invoice{
     //     readonly id: number = Math.floor(Math.random() * 500 0)

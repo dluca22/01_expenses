@@ -8,7 +8,7 @@ export class Bill implements HasFormatter{
     readonly id: number = Math.floor(Math.random() * 5000)
     constructor(
         // public type: string,
-        public service: "gas" | "water" | "heating" | "isp",
+        public service: "gas" | "water" | "heating" | "isp"| "internet",
         public provider: string,
         public amount: number
         ) {}

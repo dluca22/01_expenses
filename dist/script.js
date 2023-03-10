@@ -1,4 +1,5 @@
 import { Invoice } from "./classes/Invoice.js";
+import { Bill } from "./classes/Bill.js";
 const form = document.querySelector("#input-form");
 // === code for formData ====
 /*
@@ -9,6 +10,16 @@ added this code to tsconfig to allow Object.fromEntries to iterate over DOM obje
     "dom.iterable"
 ],
 */
+let docUno;
+let docDue;
+let docTre;
+docUno = new Invoice("car", "concessionaria", 25000);
+docDue = new Bill("isp", "fastweb", 24.99);
+docTre = new Bill("isp", "fastweb", 24.99);
+const docsArray = [];
+docsArray.push(docUno);
+docsArray.push(docDue);
+docsArray.push(docTre);
 form.addEventListener("submit", e => {
     e.preventDefault();
     const formData = new FormData(form);
