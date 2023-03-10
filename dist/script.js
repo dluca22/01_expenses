@@ -1,25 +1,15 @@
 import { Invoice } from "./classes/Invoice.js";
 import { Bill } from "./classes/Bill.js";
 const form = document.querySelector("#input-form");
-// === code for formData ====
-/*
-added this code to tsconfig to allow Object.fromEntries to iterate over DOM objects
-"lib": [
-    "es2019",
-    "dom",
-    "dom.iterable"
-],
-*/
-let docUno;
-let docDue;
-let docTre;
-docUno = new Invoice("car", "concessionaria", 25000);
-docDue = new Bill("isp", "fastweb", 24.99);
-docTre = new Bill("isp", "fastweb", 24.99);
-const docsArray = [];
-docsArray.push(docUno);
-docsArray.push(docDue);
-docsArray.push(docTre);
+// instantiate an array of items with HasFormatter interface
+let savedDocs;
+// if localstorage, load elements from it, else empty array only accepting interface compliant objects
+if (localStorage.getItem("documents")) {
+    savedDocs = JSON.parse(localStorage.getItem("documents"));
+}
+else {
+    savedDocs = [];
+}
 form.addEventListener("submit", e => {
     e.preventDefault();
     const formData = new FormData(form);
@@ -29,10 +19,17 @@ form.addEventListener("submit", e => {
     const recipient = typeof data.recipient === "string" ? data.recipient : "";
     let amount = typeof data.amount === "string" ? parseFloat(data.amount) : 0;
     let values;
-    values = [type, name, recipient, amount];
-    const m = new Invoice("pavement", "mario", 599);
-    console.log(m);
-    console.log(m.format());
+    values = [name, recipient, amount];
+    let doc;
+    if (type === "invoice") {
+        doc = new Invoice(...values);
+    }
+    else {
+        doc = new Bill(...values);
+    }
+    savedDocs.push(doc);
+    // after updating with new document, save to localstorage
+    localStorage.setItem("documents", JSON.stringify(savedDocs));
 });
 // === code for formData ====
 // using arrays and tuples

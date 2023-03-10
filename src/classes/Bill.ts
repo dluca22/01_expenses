@@ -8,11 +8,11 @@ export class Bill implements HasFormatter{
     readonly id: number = Math.floor(Math.random() * 5000)
     constructor(
         // public type: string,
-        public service: "gas" | "water" | "heating" | "isp"| "internet",
+        public service: string,
         public provider: string,
         public amount: number
         ) {}
         format():string{
-            return `${this.provider} was paid ${this.amount} $ for ${this.service}, [transaction_id: ${this.id}]`
+            return `${this.provider} was paid ${this.amount}$ for ${this.service}, [Bill id: ${this.id}]`
         }
     }

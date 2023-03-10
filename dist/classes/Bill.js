@@ -10,6 +10,6 @@ export class Bill {
         this.id = Math.floor(Math.random() * 5000);
     }
     format() {
-        return `${this.provider} was paid ${this.amount} $ for ${this.service}, [transaction_id: ${this.id}]`;
+        return `${this.provider} was paid ${this.amount}$ for ${this.service}, [Bill id: ${this.id}]`;
     }
 }

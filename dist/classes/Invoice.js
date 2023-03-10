@@ -11,7 +11,7 @@ export class Invoice {
         this.id = Math.floor(Math.random() * 5000);
     }
     format() {
-        return `${this.recipient} was paid ${this.amount} $ for ${this.name}, [transaction_id: ${this.id}]`;
+        return `${this.recipient} was paid ${this.amount}$ for ${this.name}, [Invoice Nr: ${this.id}]`;
     }
 }
 // versione classica

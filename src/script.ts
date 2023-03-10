@@ -3,50 +3,40 @@ import { Bill } from "./classes/Bill.js"
 import { HasFormatter } from "./interfaces/HasFormatter.js";
 
 
-const form = document.querySelector("#input-form")as HTMLFormElement;
+const form = document.querySelector("#input-form") as HTMLFormElement;
 
-
-// === code for formData ====
-/*
-added this code to tsconfig to allow Object.fromEntries to iterate over DOM objects
-"lib": [
-    "es2019",
-    "dom",
-    "dom.iterable"
-],
-*/
-let docUno: HasFormatter;
-let docDue: HasFormatter;
-let docTre: HasFormatter;
-
-docUno = new Invoice("car", "concessionaria", 25000)
-docDue = new Bill("isp", "fastweb", 24.99)
-docTre = new Bill("isp", "fastweb", 24.99)
-
-const docsArray: HasFormatter[] = []
-docsArray.push(docUno)
-docsArray.push(docDue)
-docsArray.push(docTre)
-
+// instantiate an array of items with HasFormatter interface
+let savedDocs: HasFormatter[]
+// if localstorage, load elements from it, else empty array only accepting interface compliant objects
+if (localStorage.getItem("documents")){
+    savedDocs = JSON.parse(localStorage.getItem("documents")!)
+}else{
+    savedDocs = []
+}
 
 form.addEventListener("submit", e => {
-        e.preventDefault()
-        const formData = new FormData(form)
-        const data = Object.fromEntries(formData)
+    e.preventDefault()
+    const formData = new FormData(form)
+    const data = Object.fromEntries(formData)
 
-        const type: string = typeof data.type === "string" ? data.type : ""
-        const name: string = typeof data.name === "string" ? data.name : ""
-        const recipient: string = typeof data.recipient === "string" ? data.recipient : ""
-        let amount:number = typeof data.amount === "string" ? parseFloat(data.amount) : 0
-        let values : [string, string, string, number];
-        values = [type, name, recipient, amount ]
+    const type: string = typeof data.type === "string" ? data.type : ""
+    const name: string = typeof data.name === "string" ? data.name : ""
+    const recipient: string = typeof data.recipient === "string" ? data.recipient : ""
+    let amount: number = typeof data.amount === "string" ? parseFloat(data.amount) : 0
+    let values: [string, string, number];
+    values = [name, recipient, amount]
 
-        const m = new Invoice("pavement", "mario", 599)
-        console.log(m)
-        console.log(m.format())
+    let doc: HasFormatter;
+    if (type === "invoice") {
+        doc = new Invoice(...values)
+    } else {
+        doc = new Bill(...values)
+    }
+    savedDocs.push(doc)
+    // after updating with new document, save to localstorage
+    localStorage.setItem("documents", JSON.stringify(savedDocs))
+})
 
-
-    })
 // === code for formData ====
 
 // using arrays and tuples
