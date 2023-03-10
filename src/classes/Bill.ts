@@ -7,12 +7,12 @@ import { HasFormatter } from "../interfaces/HasFormatter.js"
 export class Bill implements HasFormatter{
     readonly id: number = Math.floor(Math.random() * 5000)
     constructor(
-        // public type: string,
+        public type: string,
         public service: string,
         public provider: string,
         public amount: number
         ) {}
         format():string{
-            return `${this.provider} was paid ${this.amount}$ for ${this.service}, [Bill id: ${this.id}]`
+            return `${this.provider} was paid ${this.amount}$ for ${this.service}, [${this.type} id: ${this.id}]`
         }
     }

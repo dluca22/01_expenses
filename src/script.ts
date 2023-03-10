@@ -23,8 +23,8 @@ form.addEventListener("submit", e => {
     const name: string = typeof data.name === "string" ? data.name : ""
     const recipient: string = typeof data.recipient === "string" ? data.recipient : ""
     let amount: number = typeof data.amount === "string" ? parseFloat(data.amount) : 0
-    let values: [string, string, number];
-    values = [name, recipient, amount]
+    let values: [string, string, string, number];
+    values = [type, name, recipient, amount]
 
     let doc: HasFormatter;
     if (type === "invoice") {
@@ -35,16 +35,7 @@ form.addEventListener("submit", e => {
     savedDocs.push(doc)
     // after updating with new document, save to localstorage
     localStorage.setItem("documents", JSON.stringify(savedDocs))
+
+    form.reset()
 })
 
-// === code for formData ====
-
-// using arrays and tuples
-
-// form.addEventListener("submit", (e: Event) => {
-//     e.preventDefault();
-//     let values : [string, string, string, number];
-//     values = [type.value, name.value, recipient.value, amount.value ]
-// })
-
-// {type: 'invoice', name: 'daf', recipient: 'adf', amount: ''}

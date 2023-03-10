@@ -8,13 +8,13 @@ import { HasFormatter } from "../interfaces/HasFormatter.js"
 export class Invoice implements HasFormatter{
     readonly id: number = Math.floor(Math.random() * 5000)
     constructor(
-        // public type: string,
+        public type: string,
         public name: string,
         public recipient: string,
         public amount: number
         ) {}
         format():string{
-            return `${this.recipient} was paid ${this.amount}$ for ${this.name}, [Invoice Nr: ${this.id}]`
+            return `${this.recipient} was paid ${this.amount}$ for ${this.name}, [${this.type} Nr: ${this.id}]`
         }
     }
 

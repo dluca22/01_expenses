@@ -2,16 +2,15 @@
 // implements HasFormatter ensures it complies with the interface that requires having a method format() returning a string
 // removing the method would invalidate the class due to incompliance with the interface
 export class Invoice {
-    constructor(
-    // public type: string,
-    name, recipient, amount) {
+    constructor(type, name, recipient, amount) {
+        this.type = type;
         this.name = name;
         this.recipient = recipient;
         this.amount = amount;
         this.id = Math.floor(Math.random() * 5000);
     }
     format() {
-        return `${this.recipient} was paid ${this.amount}$ for ${this.name}, [Invoice Nr: ${this.id}]`;
+        return `${this.recipient} was paid ${this.amount}$ for ${this.name}, [${this.type} Nr: ${this.id}]`;
     }
 }
 // versione classica
