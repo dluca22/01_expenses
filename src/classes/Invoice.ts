@@ -11,7 +11,7 @@ export class Invoice implements HasFormatter{
         public type: string,
         public name: string,
         public recipient: string,
-        public amount: number
+        public amount: string
         ) {}
         format():string{
             return `${this.recipient} was paid ${this.amount}$ for ${this.name}, [${this.type} Nr: ${this.id}]`

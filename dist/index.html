@@ -24,14 +24,14 @@
                     <!-- <option value="bill">Bill</option> -->
                 </select>
             </label>
-
-            <label for="name">
-                Name:
-                <input type="text" name="name"></label>
             <label for="recipient">
                 Recipient:
                 <input type="text" name="recipient">
             </label>
+
+            <label for="name">
+                Name:
+                <input type="text" name="name"></label>
         </div>
         <div class="group2">
 
@@ -42,11 +42,21 @@
         </div>
     </form>
     <section class="history">
-        <h3>History:</h3>
+        <h3 style="font-size: 1.6rem; color:var(--complementary)">History:</h3>
 
         <ul class="list">
 
-            <li>test</li>
+            <li class="invoice list-item">
+                <div class="list-heading"><span>invoice</span><span>To: test</span></div>
+                <div class="amount_section"><span>Amount :</span><span class="transaction_amount">1324$</span></div>
+                <p class="transaction_description">"test was paid 1324$ for test, [invoice Nr: 1842]"</p>
+            </li>
+            <li class="bill list-item">
+                <div class="list-heading"><span>bill</span><span>To: asas</span></div>
+                <div class="amount_section"><span>Amount :</span><span class="transaction_amount">1212$</span></div>
+                <p class="transaction_description">"asas was paid 1212$ for assaa, [bill id: 1962]"</p>
+            </li>
+            </li>
         </ul>
 
     </section>
