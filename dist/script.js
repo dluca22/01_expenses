@@ -1,17 +1,5 @@
-"use strict";
-// import Submission from "./interfaces/Submission";
-// import { nanoid } from "nanoid";
+import { Invoice } from "./classes/Invoice.js";
 const form = document.querySelector("#input-form");
-// constructor shorthand
-class Submission {
-    constructor(type, name, recipient, amount) {
-        this.type = type;
-        this.name = name;
-        this.recipient = recipient;
-        this.amount = amount;
-        this.id = Math.floor(Math.random() * 200);
-    }
-}
 // === code for formData ====
 /*
 added this code to tsconfig to allow Object.fromEntries to iterate over DOM objects
@@ -29,10 +17,11 @@ form.addEventListener("submit", e => {
     const name = typeof data.name === "string" ? data.name : "";
     const recipient = typeof data.recipient === "string" ? data.recipient : "";
     let amount = typeof data.amount === "string" ? parseFloat(data.amount) : 0;
-    // let values : [string, string, string, number];
-    // values = [type, name, recipient, amount ]
-    const submission = new Submission(type, name, recipient, amount);
-    console.log(submission);
+    let values;
+    values = [type, name, recipient, amount];
+    const m = new Invoice("pavement", "mario", 599);
+    console.log(m);
+    console.log(m.format());
 });
 // === code for formData ====
 // using arrays and tuples

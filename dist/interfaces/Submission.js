@@ -1,22 +1,9 @@
-"use strict";
 // import { nanoid } from "nanoid"
-Object.defineProperty(exports, "__esModule", { value: true });
-// versione classica
-// class FormData{
-//     readonly id:string
-//     type:string
-//     name:string
-//     recipient:string
-//     amount:number
-//     constructor(type:string, name:string, recipient:string, amount:number){
-//         this.type = type
-//         this.name = name
-//         this.recipient = recipient
-//         this.amount = amount
-//     }
-// }
+// in order to use modules in Ts, set tsconfig.json to
+// "target": "es6",     /*Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+// "module": "es2015",              /* Specify what module code is generated. */
 // constructor shorthand
-class Submission {
+export default class Submission {
     constructor(type, name, recipient, amount) {
         this.type = type;
         this.name = name;
@@ -25,4 +12,3 @@ class Submission {
         this.id = Math.floor(Math.random() * 5000);
     }
 }
-exports.default = Submission;

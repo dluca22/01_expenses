@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ts Expenses</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- in order to support modular js files, add type="module" -->
     <script type="module" src="/dist/script.js" defer></script>
 </head>
 
@@ -17,8 +19,8 @@
             <label for="type">
                 Type:
                 <select name="type" id="">
-                    <option value="payment">Payment</option>
-                    <option value="invoice">Invoice</option>
+                    <option default value="invoice">Invoice</option>
+                    <option value="bill">Bill</option>
                     <!-- <option value="bill">Bill</option> -->
                 </select>
             </label>
