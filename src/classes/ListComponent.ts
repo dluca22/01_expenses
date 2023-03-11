@@ -25,6 +25,7 @@ export class ListComponent {
         const transaction_amount = document.createElement("span");
         transaction_amount.classList.add("transaction_amount");
         transaction_amount.innerText = `${amount}$`;
+        
 
         amount_section.append(amount_label, transaction_amount);
 
