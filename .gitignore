@@ -1,0 +1,9 @@
+node_modules/
+.vscode/
+
+*.scss
+src/
+package-lock.json
+package.json
+README.md
+tsconfig.json
