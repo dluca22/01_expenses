@@ -3,7 +3,6 @@ import { Bill } from "./classes/Bill.js"
 import { HasFormatter } from "./interfaces/HasFormatter.js";
 import { ListComponent } from "./classes/ListComponent.js";
 
-
 const form = document.querySelector("#input-form") as HTMLFormElement;
 const ul = document.querySelector('ul.list') as HTMLUListElement;
 const list = new ListComponent(ul)
