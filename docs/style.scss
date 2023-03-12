@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+// variables are abstracted into another file and imported
+@import './variables';
+@import './alertBox';
+
+@mixin colCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  @include colCenter();
+  color: $textCol;
+  font-family: 'cabin', Arial, Helvetica, sans-serif;
+}
+#title {
+  color: $accent;
+  font-size: 2.5rem;
+}
+
+#input-form {
+  @include colCenter();
+  justify-content: space-evenly;
+  height: 25vh;
+  width: 100%;
+  background-color: $base;
+  .row {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+  }
+  label {
+    display: flex;
+    flex-direction: column;
+    input, select {
+      padding: 4px;
+      border-radius: 3px;
+      border: none;
+      border: 3px solid transparent;
+      &:focus{
+      outline: none;
+      border-bottom: 3px solid $accent;
+    }
+  }
+}
+
+  button {
+    color: white;
+    border: 0;
+    background: $accent;
+    padding: 6px;
+    min-width: 80px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    &:hover {
+      background: $accent;
+      cursor: pointer;
+    }
+  }
+}
+
+section.history {
+  @include colCenter();
+  width: 80%;
+  max-width: 960px;
+
+  h3 {
+    font-size: 1.6rem;
+    color: $complementary;
+  }
+  ul.list {
+    list-style-type: none;
+    padding: 0;
+    width: inherit;
+  }
+  li {
+    margin-bottom: 4px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: 1px solid;
+    border-bottom: 5px solid;
+
+    .list-heading {
+      display: flex;
+      justify-content: space-between;
+      padding-inline: 30px;
+      font-size: larger;
+      font-weight: bold;
+      line-height: 2rem;
+    }
+    .amount_section {
+      text-align: right;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .transaction_amount {
+      font-weight: bold;
+      color: rgb(189, 3, 3);
+    }
+    .transaction_description {
+      padding-left: 10%;
+      font-style: italic;
+    }
+  }
+  .invoice{
+    border-color: $invoice;
+  }
+  .bill{
+    border-color: $bill;
+  }
+}
+
+
+
+
+.alert{
+  @include alert-box($alert-bord, $alert-col ,$alert-bg )
+}
+.info{
+  @include alert-box($info-bord, $info-col ,$info-bg )
+}
+.warn{
+  @include alert-box($warn-bord, $warn-col ,$warn-bg )
+}
